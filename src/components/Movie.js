@@ -1,4 +1,6 @@
-const Movie = ({ movie, genres }) => {
+import "../styles/components/movie.css";
+
+const Movie = ({ movie, genres, filterByGenre}) => {
     const getGenreName = (genreId) => {
         const genre = genres.find((genre) => genre.id === genreId);
         return genre.name;
@@ -23,7 +25,7 @@ const Movie = ({ movie, genres }) => {
                 {movie.genre_ids.length > 0 && (
                     <div className="movie-genres">
                         {movie.genre_ids.map((genreId) => (
-                            <span className="movie-genre">
+                            <span key={genreId} className="movie-genre" onClick={() => filterByGenre(genreId)}>
                                 {getGenreName(genreId)}
                             </span>
                         ))}

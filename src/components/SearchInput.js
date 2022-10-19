@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import "../styles/components/searchInput.css";
+import { useState } from "react";
 
 const SearchInput = ({ searchMovies }) => {
     const [query, setQuery] = useState("");

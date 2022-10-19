@@ -1,0 +1,31 @@
+.search-input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 380px;
+    margin-right: -50px;
+    animation: showFromFold 0.5s ease-in-out;
+}
+.search-input {
+    width: 50%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 1.2em;
+    min-width: 380px;
+}
+
+.search-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    color: #3dbf94;
+    background: transparent;
+    font-size: 1.2em;
+    position: relative;
+    right: 50px;
+}
