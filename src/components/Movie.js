@@ -1,9 +1,13 @@
 import "../styles/components/movie.css";
 
-const Movie = ({ movie, genres, filterByGenre}) => {
+const Movie = ({ movie, genres, filterByGenre }) => {
     const getGenreName = (genreId) => {
-        const genre = genres.find((genre) => genre.id === genreId);
-        return genre.name;
+        if (genres) {
+            const genre = genres.find((genre) => genre.id === genreId);
+            if (genre) {
+                return genre.name;
+            }
+        }
     };
 
     return (
@@ -25,7 +29,11 @@ const Movie = ({ movie, genres, filterByGenre}) => {
                 {movie.genre_ids.length > 0 && (
                     <div className="movie-genres">
                         {movie.genre_ids.map((genreId) => (
-                            <span key={genreId} className="movie-genre" onClick={() => filterByGenre(genreId)}>
+                            <span
+                                key={genreId}
+                                className="movie-genre"
+                                onClick={() => filterByGenre(genreId)}
+                            >
                                 {getGenreName(genreId)}
                             </span>
                         ))}

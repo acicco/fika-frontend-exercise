@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-    const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = useState(null);
     const [genres, setGenres] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
@@ -14,18 +14,30 @@ function App() {
 
     const getMovies = async (pageNum) => {
         const data = await TheMovieDb.getMovies(pageNum);
+        if (!data) {
+            setMovies([]);
+            return;
+        }
         setMovies(data.results);
         setTotalPages(data.total_pages);
     };
 
     const getGenres = async () => {
         const data = await TheMovieDb.getMovieGenres();
+        if (!data) {
+            setGenres([]);
+            return;
+        }
         setGenres(data.genres);
     };
 
     const searchMovies = async (query, page) => {
         setQuery(query);
         const data = await TheMovieDb.searchMovies(query, page);
+        if (!data) {
+            setMovies([]);
+            return;
+        }
         setMovies(data.results);
         setTotalPages(data.total_pages);
         if (page) {
@@ -57,12 +69,15 @@ function App() {
                 <SearchInput searchMovies={searchMovies} />
             </header>
             <main className="main-container">
-                {movies.length === 0 && (
+                {movies && movies.length === 0 && (
                     <div className="no-results">
-                        <span>No movies were found <i className="far fa-frown"></i></span>
+                        <span>
+                            No movies were found
+                            <i className="far fa-frown"></i>
+                        </span>
                     </div>
                 )}
-                {movies.length > 0 && (
+                {movies && movies.length > 0 && (
                     <>
                         <Pagination
                             page={page}

@@ -5,7 +5,11 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    margin-top: 10px;
+    margin: 20px 0;
+    opacity: 0;
+    animation: fade-in-down 0.5s ease-in-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
 }
 
 .pagination-button {
@@ -19,5 +23,6 @@
     margin: 0 5px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    margin: 0 40px;
 }
 

@@ -1,5 +1,8 @@
 # FikaSearch Exercise
 
+## Notes
+If I would have more time I would try a lower version of react so that I can use enzyme to do more tests.
+
 The objective of this exercise is to fork this repository and create a `react-native` app called 'FikaSearch'. This app will comprise of a listing page of films and the names of their genres. The page should also allow the user to search the films by typing into a text field.
 
 We expect you to have an understandable structure, clean code, and to be able to describe your next steps in any aspects of the challenge you arent able to complete in a few of hours.

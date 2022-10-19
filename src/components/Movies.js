@@ -34,7 +34,7 @@ const Movies = ({ movies, genres }) => {
                     onChange={(e) => filterByGenre(e.target.value)}
                 >
                     <option value="all">All</option>
-                    {genres.map((genre) => (
+                    {genres && genres.map((genre) => (
                         <option key={genre.id} value={genre.id}>
                             {genre.name}
                         </option>
